@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.page-container {
+    width: 100%;display: flex;
+}
+.carousel-container {
+    width: 89%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    background-color: black
+}
+.arrows {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    font-size: 48px;
+    color: white;
+    padding: 0 1%;
+    
+}
+.previous, .next {
+    filter: opacity(0.2);
+}
+.previous:hover, .next:hover, .pause-button:hover {
+    filter: none;
+    cursor: pointer;
+}
+
+.carousel-container img{
+    width: 100%;
+    transform: scale(.7);
+    
+    
+}
+.carousel-image, .carousel-title, .carousel-text {
+    display: none;
+}
+.active {
+    display: block;
+}
+
+.thumbnails-container {
+    background-color: black;
+    width: 11%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+.thumb-image {
+    overflow: hidden;
+    filter: opacity(0.5);
+}
+.thumb-image img {
+    height: 100%;
+    overflow: hidden;
+    
+}
+.thumb-image:hover {
+    filter: none;
+}
+.thumb-active {
+    filter: none;
+    border: 2px solid white;
+}
+
+.text-container {
+    color: white;
+    position: absolute;
+    bottom: 4%;
+    right: 0;
+}
+.carousel-title {
+    text-align: end;
+    font-weight: bold;
+    font-size: 24px;
+}
+.carousel-text {
+    text-wrap: wrap;
+    width: 77%;
+    text-align: end;
+    margin-left: 23%;
+}
+.pause-button {
+    font-size: 30px;
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    color: white;
+    filter: opacity(0.2);
+}
