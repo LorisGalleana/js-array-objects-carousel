@@ -58,7 +58,7 @@ const getImage = document.getElementsByClassName("carousel-image");
 const getTitle = document.getElementsByClassName("carousel-title");
 const getText = document.getElementsByClassName("carousel-text");
 
-const thumbnails = document.getElementsByClassName("thumb-image");
+const thumbnails = document.querySelectorAll(".thumb-image");
 
 let activeItem = 0;
 
@@ -75,6 +75,11 @@ const reverse = document.querySelector(".reverse-button");
 
 next.addEventListener("click", nextImage)
 previous.addEventListener("click", previousImage)
+
+for (let i=0; i < 5; i++) {
+    changeImage(i);
+}
+
 
 
 
@@ -161,4 +166,23 @@ function forwardPlay () {
 function reversePlay () {
     stopScroll()
     autoscroll = setInterval(previousImage, 3000)
+}
+
+function changeImage (i) {
+    thumbnails[i].addEventListener("click", function(){
+        if (activeItem != thumbnails[i]) {
+            getImage[activeItem].classList.remove("active");
+            getTitle[activeItem].classList.remove("active");
+            getText[activeItem].classList.remove("active");
+            thumbnails[activeItem].classList.remove("thumb-active");
+    
+            activeItem = i
+    
+            getImage[activeItem].classList.add("active");
+            getTitle[activeItem].classList.add("active");
+            getText[activeItem].classList.add("active");
+            thumbnails[activeItem].classList.add("thumb-active");
+        }
+    
+    })
 }

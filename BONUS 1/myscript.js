@@ -58,7 +58,8 @@ const getImage = document.getElementsByClassName("carousel-image");
 const getTitle = document.getElementsByClassName("carousel-title");
 const getText = document.getElementsByClassName("carousel-text");
 
-const thumbnails = document.getElementsByClassName("thumb-image");
+const thumbnails = document.querySelectorAll("thumb-image");
+
 
 let activeItem = 0;
 
@@ -70,16 +71,19 @@ thumbnails[activeItem].classList.add("thumb-active");
 const next = document.querySelector(".next");
 const previous = document.querySelector(".previous");
 
-next.addEventListener("click", nextImage)
-previous.addEventListener("click", previousImage)
-
 for (let i=0; i < 5; i++) {
     changeImage(i);
 }
 
-const autoScroll = setInterval(nextImage, 3000)
 
-function nextImage () {
+
+
+
+
+
+
+
+next.addEventListener("click", function() {
     if (activeItem < imageArray.length - 1) {
         
         getImage[activeItem].classList.remove("active");
@@ -108,9 +112,10 @@ function nextImage () {
         getText[activeItem].classList.add("active");
         thumbnails[activeItem].classList.add("thumb-active");
     }
-}
-
-function previousImage () {
+       
+    
+})
+previous.addEventListener("click", function() {
     if (activeItem > 0) {
         
         getImage[activeItem].classList.remove("active");
@@ -141,7 +146,9 @@ function previousImage () {
         getText[activeItem].classList.add("active");
         thumbnails[activeItem].classList.add("thumb-active");
     }
-}
+    
+    
+})
 function changeImage (i) {
     thumbnails[i].addEventListener("click", function(){
         if (activeItem != thumbnails[i]) {
