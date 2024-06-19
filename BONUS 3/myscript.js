@@ -70,13 +70,19 @@ thumbnails[activeItem].classList.add("thumb-active");
 const next = document.querySelector(".next");
 const previous = document.querySelector(".previous");
 const pause = document.querySelector(".pause-button");
+const play = document.querySelector(".play-button");
+const reverse = document.querySelector(".reverse-button");
 
 next.addEventListener("click", nextImage)
 previous.addEventListener("click", previousImage)
 
 
-const autoScroll = setInterval(nextImage, 3000)
-pause.addEventListener("click",stopScroll)
+
+let autoScroll;
+autoPlay()
+pause.addEventListener("click",stopScroll);
+play.addEventListener("click",forwardPlay);
+reverse.addEventListener("click",reversePlay);
 
 function nextImage () {
     if (activeItem < imageArray.length - 1) {
@@ -141,6 +147,18 @@ function previousImage () {
         thumbnails[activeItem].classList.add("thumb-active");
     }
 }
+
 function stopScroll () {
-    clearInterval(autoScroll)
+    clearInterval(autoscroll)
+}
+function autoPlay () {
+    autoscroll = setInterval(nextImage, 3000)
+}
+function forwardPlay () {
+    stopScroll()
+    autoscroll = setInterval(nextImage, 3000)
+}
+function reversePlay () {
+    stopScroll()
+    autoscroll = setInterval(previousImage, 3000)
 }
