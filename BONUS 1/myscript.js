@@ -58,7 +58,7 @@ const getImage = document.getElementsByClassName("carousel-image");
 const getTitle = document.getElementsByClassName("carousel-title");
 const getText = document.getElementsByClassName("carousel-text");
 
-const thumbnails = document.querySelectorAll("thumb-image");
+const thumbnails = document.querySelectorAll(".thumb-image");
 
 
 let activeItem = 0;
