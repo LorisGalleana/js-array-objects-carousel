@@ -34,12 +34,14 @@ for (let i = 0; i < imageArray.length; i++) {
 
     let carouselContent = 
     `
-            <div class="carousel-image">
-                <img src="${carouselImg}">
-            </div>
-            <div class="text-container">
-                <div class="carousel-title">${carouselTitle}</div>
-                <div class="carousel-text">${carouselText}</div>
+            <div class="carousel-box">
+                <div class="carousel-image">
+                    <img src="${carouselImg}">
+                </div>
+                <div class="text-container">
+                    <div class="carousel-title">${carouselTitle}</div>
+                    <div class="carousel-text">${carouselText}</div>
+                </div>
             </div>
     `
     let thumbContent = 
@@ -53,18 +55,19 @@ for (let i = 0; i < imageArray.length; i++) {
 
     
 }
-
-const getImage = document.getElementsByClassName("carousel-image");
+const items = document.getElementsByClassName("carousel-box")
+/* const getImage = document.getElementsByClassName("carousel-image");
 const getTitle = document.getElementsByClassName("carousel-title");
-const getText = document.getElementsByClassName("carousel-text");
+const getText = document.getElementsByClassName("carousel-text"); */
 
 const thumbnails = document.querySelectorAll(".thumb-image");
 
 let activeItem = 0;
 
-getImage[activeItem].classList.add("active");
+items[activeItem].classList.add("active");
+/* getImage[activeItem].classList.add("active");
 getTitle[activeItem].classList.add("active");
-getText[activeItem].classList.add("active");
+getText[activeItem].classList.add("active"); */
 thumbnails[activeItem].classList.add("thumb-active");
 
 const next = document.querySelector(".next");
@@ -92,30 +95,34 @@ reverse.addEventListener("click",reversePlay);
 function nextImage () {
     if (activeItem < imageArray.length - 1) {
         
-        getImage[activeItem].classList.remove("active");
+        items[activeItem].classList.remove("active");
+        /* getImage[activeItem].classList.remove("active");
         getTitle[activeItem].classList.remove("active");
-        getText[activeItem].classList.remove("active");
+        getText[activeItem].classList.remove("active"); */
         thumbnails[activeItem].classList.remove("thumb-active");
 
         activeItem++;
 
-        getImage[activeItem].classList.add("active");
+        items[activeItem].classList.add("active");
+        /* getImage[activeItem].classList.add("active");
         getTitle[activeItem].classList.add("active");
-        getText[activeItem].classList.add("active");
+        getText[activeItem].classList.add("active"); */
         thumbnails[activeItem].classList.add("thumb-active");
 
     }
     else {
-        getImage[activeItem].classList.remove("active");
+        items[activeItem].classList.remove("active");
+        /* getImage[activeItem].classList.remove("active");
         getTitle[activeItem].classList.remove("active");
-        getText[activeItem].classList.remove("active");
+        getText[activeItem].classList.remove("active"); */
         thumbnails[activeItem].classList.remove("thumb-active");
 
         activeItem = 0;
 
-        getImage[activeItem].classList.add("active");
+        items[activeItem].classList.add("active");
+        /* getImage[activeItem].classList.add("active");
         getTitle[activeItem].classList.add("active");
-        getText[activeItem].classList.add("active");
+        getText[activeItem].classList.add("active"); */
         thumbnails[activeItem].classList.add("thumb-active");
     }
 }
