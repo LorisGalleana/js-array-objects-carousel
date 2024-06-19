@@ -43,7 +43,7 @@
     
     
 }
-.carousel-image {
+.carousel-image, .carousel-title, .carousel-text {
     display: none;
 }
 .active {
@@ -61,7 +61,7 @@
 }
 .thumb-image {
     overflow: hidden;
-    filter: opacity(0.2);
+    filter: opacity(0.5);
 }
 .thumb-image img {
     height: 100%;
@@ -74,4 +74,22 @@
 .thumb-active {
     filter: none;
     border: 2px solid white;
+}
+
+.text-container {
+    color: white;
+    position: absolute;
+    bottom: 4%;
+    right: 0;
+}
+.carousel-title {
+    text-align: end;
+    font-weight: bold;
+    font-size: 24px;
+}
+.carousel-text {
+    text-wrap: wrap;
+    width: 77%;
+    text-align: end;
+    margin-left: 23%;
 }
